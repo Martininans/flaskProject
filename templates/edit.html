@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="section-title">Edit Task</h2>
+    <div class="form-container">
+        <form action="{{ url_for('edit', id=todo.id) }}" method="POST">
+            <label for="task">Task:</label>
+            <input type="text" id="task" name="task" value="{{ todo.task }}" required>
+            <label for="done">Done:</label>
+            <input type="checkbox" id="done" name="done" {% if todo.done %}checked{% endif %}>
+            <button type="submit" class="btn btn-secondary">Update</button>
+        </form>
+    </div>
+{% endblock %}
